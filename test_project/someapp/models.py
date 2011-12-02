@@ -8,5 +8,16 @@ __author__ = 'Razzhivin Alexander'
 __email__ = 'admin@httpbots.com'
 
 
+class ParentObject(models.Model):
+    value = models.IntegerField(default=0)
+
+    def count_someobjects(self):
+        return self.someobjects.count()
+
+    def create_someobject(self):
+        return self.someobjects.create()
+
 class SomeObject(models.Model):
+    parent = models.ForeignKey(ParentObject, related_name='someobjects')
+    value = models.IntegerField(default=1)
     objects = ChainableQuerySetManager(ExtendedQuerySet)

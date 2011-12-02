@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from django.db import models
-
+from django.db.models.fields.related import RelatedObject
 
 __author__ = 'Razzhivin Alexander'
 __email__ = 'admin@httpbots.com'
