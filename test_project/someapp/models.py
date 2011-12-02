@@ -14,8 +14,11 @@ class ParentObject(models.Model):
     def count_someobjects(self):
         return self.someobjects.count()
 
-    def create_someobject(self):
+    def create_someobject_throw_related(self):
         return self.someobjects.create()
+
+    def create_someobject(self):
+        return SomeObject.objects.create(parent=self)
 
 class SomeObject(models.Model):
     parent = models.ForeignKey(ParentObject, related_name='someobjects')
