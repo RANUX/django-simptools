@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from setuptools import setup, find_packages
 
-VERSION = '0.3'
+VERSION = '0.1'
 
 setup(
     version=VERSION,
