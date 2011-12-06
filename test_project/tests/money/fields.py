@@ -29,6 +29,14 @@ class MoneyFormTestCase(TestCase):
         self.assertEquals(result.amount, Decimal("10"))
         self.assertEquals(result.currency, SEK_currency)
 
+    def test_validators(self):
+        SEK_currency = CURRENCIES['SEK']
+        form = MoneyForm({"money":"xxx", "money_currency":SEK_currency.code})
+        self.assertFalse(form.is_valid())
+
+        form = MoneyForm({"money":"1.001", "money_currency":SEK_currency.code})
+        self.assertFalse(form.is_valid())
+
     def test_non_existant_currency(self):
         form = MoneyForm({"money":"10", "money_currency":"_XX!123_"})
         self.assertFalse(form.is_valid())

@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from setuptools import setup, find_packages
 
-VERSION = '0.2'
+VERSION = '0.3'
 
 setup(
     version=VERSION,
@@ -15,5 +15,5 @@ setup(
     platforms=['any'],
     include_package_data=True,
     test_suite='tests',
-    tests_require=['nose','django', 'django_nose', 'py-moneyed', ]
+    tests_require=['nose','django', 'django_nose', 'py-moneyed>=0.3', ]
 )

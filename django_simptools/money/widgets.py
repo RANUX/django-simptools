@@ -5,13 +5,13 @@ Created on May 7, 2011
 @site: https://github.com/jakewins/django-money
 '''
 from django import forms
-from moneyed.classes import Money, CURRENCIES, DEFAULT_CURRENCY
+from moneyed import Money, CURRENCIES, DEFAULT_CURRENCY_CODE
 from decimal import Decimal
 import operator
 
 __all__ = ('InputMoneyWidget', 'CurrencySelectWidget',)
 
-CURRENCY_CHOICES = [(c.code, c.name) for i, c in CURRENCIES.items() if c.code != DEFAULT_CURRENCY.code]
+CURRENCY_CHOICES = [(c.code, c.name) for i, c in CURRENCIES.items() if c.code != DEFAULT_CURRENCY_CODE]
 CURRENCY_CHOICES.sort(key=operator.itemgetter(1))
 
 class CurrencySelectWidget(forms.Select):

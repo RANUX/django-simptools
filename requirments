@@ -1,4 +1,4 @@
 django
 nose
 django_nose
-py-moneyed
+-e git+https://github.com/limist/py-moneyed.git#egg=py-moneyed
