@@ -18,6 +18,8 @@ money.MoneyField
 ============
 Example::
 
+    from moneyed.classes import CURRENCIES
+
     CURRENCY_CHOICES = [(CURRENCIES['RUB'].code, CURRENCIES['RUB'].name)]
 
     class MoneyForm(forms.Form):

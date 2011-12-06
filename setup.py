@@ -15,5 +15,5 @@ setup(
     platforms=['any'],
     include_package_data=True,
     test_suite='tests',
-    tests_require=['nose','django', 'django_nose',]
+    tests_require=['nose','django', 'django_nose', 'py-moneyed', ]
 )
