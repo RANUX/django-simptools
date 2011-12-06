@@ -26,5 +26,5 @@ class ExtendedQuerySetTests(TestCase):
         # RuntimeError: maximum recursion depth exceeded while calling a Python object
         someobject = self.parent.create_someobject_throw_related()
         
-        def test_create_someobject_in_parent(self):
-            someobject = self.parent.create_someobject()
+    def test_create_someobject_in_parent(self):
+        someobject = self.parent.create_someobject()

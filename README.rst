@@ -14,6 +14,15 @@ Installation from github::
 
     pip install -e git+https://github.com/RANUX/django-simptools#egg=django-simptools
 
+money.MoneyField
+============
+Example::
+
+    CURRENCY_CHOICES = [(CURRENCIES['RUB'].code, CURRENCIES['RUB'].name)]
+
+    class MoneyForm(forms.Form):
+        money = MoneyField(currency_widget=CurrencySelectWidget(choices=CURRENCY_CHOICES))
+
 Testing
 ============
 Go to django-simptools directory and run tests::
