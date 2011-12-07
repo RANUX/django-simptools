@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
-from django_simptools.money.fields import MoneyField
-from django_simptools.money.widgets import CurrencySelectWidget
+from django_simptools.money.forms.fields import MoneyField
+from django_simptools.money.forms.widgets import CurrencySelectWidget
 from django import forms
 from test_project.someapp.models import ModelWithVanillaMoneyField
 
