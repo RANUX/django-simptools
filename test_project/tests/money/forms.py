@@ -1,8 +1,10 @@
 # -*- coding: UTF-8 -*-
 from django.test import TestCase
+import moneyed
 from moneyed.classes import Money, CURRENCIES
 from decimal import Decimal
-from test_project.someapp.forms import MoneyForm
+from test_project.someapp.forms import MoneyForm, MoneyModelForm
+from test_project.someapp.models import ModelWithVanillaMoneyField
 
 
 __author__ = 'Razzhivin Alexander'
@@ -43,3 +45,14 @@ class MoneyFormTestCase(TestCase):
         self.assertEquals({'money': [u"Unrecognized currency type '_XX!123_'."]}, form.errors)
 
 
+class MoneyModelFormTestCase(TestCase):
+
+    def test_save(self):
+        form = MoneyModelForm({"money":"10", "money_currency":"SEK"})
+
+        self.assertTrue(form.is_valid())
+        model = form.save()
+
+        retrieved = ModelWithVanillaMoneyField.objects.get(pk=model.pk)
+
+        self.assertEqual(Money(10, moneyed.SEK), retrieved.money)

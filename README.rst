@@ -1,6 +1,6 @@
 About
 ============
-Django-simptools is a library with useful functions/classes for daily usage.
+Django-simptools is a collection with useful functions/classes for daily usage.
 
 Dependencies
 ============
@@ -14,7 +14,7 @@ Installation from github::
 
     pip install -e git+https://github.com/RANUX/django-simptools#egg=django-simptools
 
-money.MoneyField
+money.forms.MoneyField
 ============
 Example::
 
@@ -24,6 +24,16 @@ Example::
 
     class MoneyForm(forms.Form):
         money = MoneyField(currency_widget=CurrencySelectWidget(choices=CURRENCY_CHOICES))
+
+
+money.models.fields.MoneyField
+===============================
+Example::
+
+    from django_simptools.money.models.fields import MoneyField
+
+    class ModelWithVanillaMoneyField(models.Model):
+        money = MoneyField(max_digits=10, decimal_places=2)
 
 Testing
 ============

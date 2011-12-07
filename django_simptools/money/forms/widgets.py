@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 '''
-Created on May 7, 2011
-@author: jake
+@author: Jacob Hansson <jacob@voltvoodoo.com>
 @site: https://github.com/jakewins/django-money
+@license: BSD
 '''
 from django import forms
 from moneyed import Money, CURRENCIES, DEFAULT_CURRENCY_CODE

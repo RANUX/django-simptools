@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 '''
-Created on May 7, 2011
-@author: jake
+@author: Jacob Hansson <jacob@voltvoodoo.com>
 @site: https://github.com/jakewins/django-money
+@license: BSD
 '''
 import re
 from django.core.validators import RegexValidator
