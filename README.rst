@@ -35,6 +35,10 @@ Example::
     class ModelWithVanillaMoneyField(models.Model):
         money = MoneyField(max_digits=10, decimal_places=2)
 
+RandomUIDAbstractModel
+======================
+An abstract base class model that provides positive random uid field.
+
 Testing
 ============
 Go to django-simptools directory and run tests::

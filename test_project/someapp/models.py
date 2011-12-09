@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 from django.db import models
 from django_simptools.managers import ChainableQuerySetManager
+from django_simptools.models import RandomUIDAbstractModel
 from django_simptools.money.models.fields import MoneyField
 from django_simptools.querysets import ExtendedQuerySet
 
@@ -34,3 +35,8 @@ class ModelWithVanillaMoneyField(models.Model):
 
 class ModelRelatedToModelWithMoney(models.Model):
     moneyModel = models.ForeignKey(ModelWithVanillaMoneyField)
+
+
+# ----------------- For RandomUIDAbstractModel Tests ------------
+class ModelWithRandomUID(RandomUIDAbstractModel):
+    pass
