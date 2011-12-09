@@ -15,7 +15,7 @@ class RandomUIDAbstractModel(models.Model):
     """
     MAX_UID = 2147483647
 
-    uid = models.PositiveIntegerField(_('unique id'), unique=True)
+    uid = models.PositiveIntegerField(_('unique id'), unique=True, editable=False)
 
     class Meta:
         abstract = True
