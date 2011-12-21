@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
-'''
+"""
 @author: Jacob Hansson <jacob@voltvoodoo.com>
 @site: https://github.com/jakewins/django-money
 @license: BSD
-'''
+"""
 from django.db import models
 from django.utils.encoding import smart_unicode
 from exceptions import Exception
@@ -140,6 +140,6 @@ try:
          {}), # No new keyword args
     ]
 
-    add_introspection_rules(rules, ["^djmoney\.models"])
+    add_introspection_rules(rules, ["^django_simptools\.money\.models"])
 except ImportError:
     pass
