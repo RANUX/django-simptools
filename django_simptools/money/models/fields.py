@@ -134,7 +134,7 @@ try:
     rules = [
         ((MoneyField,),
          [], # No positional args
-         {'default_currency':('default_currency',{})}),
+         {'default_currency':('default_currency',{"default":DEFAULT_CURRENCY})}),
         ((CurrencyField,),
          [],  # No positional args
          {}), # No new keyword args
