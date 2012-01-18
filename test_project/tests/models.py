@@ -18,3 +18,17 @@ class RandomUIDAbstractModelTests(TestCase):
             self.assertIsNotNone(obj.uid)
         self.assertEquals(COUNT, ModelWithRandomUID.objects.count())
 
+
+    def test_update_existing_object(self):
+        obj = ModelWithRandomUID.objects.create()
+        obj.save()
+        uid = obj.uid
+        self.assertIsNotNone(uid)
+        self.assertFalse(obj.is_updated)
+
+        obj = ModelWithRandomUID.objects.get(uid=uid)
+        obj.is_updated=True
+        obj.save()
+        obj = ModelWithRandomUID.objects.get(uid=uid)
+        self.assertTrue(obj.is_updated)
+

@@ -39,4 +39,4 @@ class ModelRelatedToModelWithMoney(models.Model):
 
 # ----------------- For RandomUIDAbstractModel Tests ------------
 class ModelWithRandomUID(RandomUIDAbstractModel):
-    pass
+    is_updated = models.BooleanField(default=False)

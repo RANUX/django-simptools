@@ -22,13 +22,19 @@ class RandomUIDAbstractModel(models.Model):
 
     @transaction.commit_manually
     def save(self, *args, **kwargs):
-        while self.pk is None:
-            try:
-                random_uid = randint(1, self.MAX_UID)
-                self.uid = random_uid
-                super(RandomUIDAbstractModel, self).save(*args, **kwargs)
-            except IntegrityError:
-                transaction.rollback()
-        transaction.commit()
+        if self.pk:
+            super(RandomUIDAbstractModel, self).save(*args, **kwargs)
+            transaction.commit()
+        else:
+            while self.pk is None:
+                try:
+                    random_uid = randint(1, self.MAX_UID)
+                    self.uid = random_uid
+                    super(RandomUIDAbstractModel, self).save(*args, **kwargs)
+                except IntegrityError:
+                    transaction.rollback()
+            transaction.commit()
+
+
 
 
