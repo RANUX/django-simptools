@@ -3,6 +3,7 @@
 Created on May 7, 2011
 @author: jake
 """
+from unittest.case import skip
 
 from  django.test import TestCase
 from moneyed import Money
@@ -40,8 +41,16 @@ class VanillaMoneyFieldTestCase(TestCase):
         model.save()
         
         retrieved = ModelWithVanillaMoneyField.objects.get(money=somemoney)
-
         self.assertEquals(model.pk, retrieved.pk)
+
+    @skip("strange behaviour when save DecimalField with 2 places")
+    def test_add_money_and_save(self):
+        money = Money("10.45")
+        expected = Money("10.76")
+        model = ModelWithVanillaMoneyField(money=money)
+        model.money = money + 3 % money
+        model.save()
+        self.assertEquals(expected, model.money)
 
     def test_range_search(self):
 
